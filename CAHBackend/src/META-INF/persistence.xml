@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="CAHBackend">
+
+		<!-- Comment this when I want to run locally -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/CAH</jta-data-source>
+		<class>com.onegirloneguy.domain.UserProfile</class>
+		<class>com.onegirloneguy.domain.Role</class>
+		<class>com.onegirloneguy.domain.CardType</class>
+		<class>com.onegirloneguy.domain.Card</class>
+		<!-- non-jta-data-source>WhoIsYouDSUnmanaged</non-jta-data-source -->
+
+		<properties>
+			<property name="hibernate.transaction.manager_lookup_class"
+				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+			<!-- property name="eclipselink.ddl-generation" value="drop-and-create-tables" 
+				/> <property name="hibernate.ejb.event.post-insert" value="org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener" 
+				/> <property name="hibernate.ejb.event.post-update" value="org.hibernate.ejb.event.EJB3PostUpdateEventListener,org.hibernate.envers.event.AuditEventListener" 
+				/> <property name="hibernate.ejb.event.post-delete" value="org.hibernate.ejb.event.EJB3PostDeleteEventListener,org.hibernate.envers.event.AuditEventListener" 
+				/> <property name="hibernate.ejb.event.pre-collection-update" value="org.hibernate.envers.event.AuditEventListener" 
+				/> <property name="hibernate.ejb.event.pre-collection-remove" value="org.hibernate.envers.event.AuditEventListener" 
+				/> <property name="hibernate.ejb.event.post-collection-recreate" value="org.hibernate.envers.event.AuditEventListener" 
+				/> <property name="org.hibernate.envers.audit_table_suffix" value="_AUDIT_LOG" 
+				/ -->
+			<!-- Uncomment the bottom pieces to run in eclipse -->
+			<!-- property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver" 
+				/> <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/whoIsYou" 
+				/> <property name="eclipselink.jdbc.user" value="root" /> <property name="eclipselink.jdbc.password" 
+				value="" / -->
+		</properties>
+	</persistence-unit>
+</persistence>
+
