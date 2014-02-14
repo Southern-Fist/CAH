@@ -32,13 +32,13 @@ public class UserServiceImpl implements UserService {
 
 	/** TODO: this method could be cleaner, the hashing should be encapsulated in the util object **/
 	@Override
-	public SignOnVO registerUser(SignOnVO vo) {
+	public SignOnVO registerUser(final SignOnVO vo) {
 
 		boolean userAlreadyRegistered = true;
 		//Using exceptions here feels wrong but I'll leave it for now
 		try {
 			authService.checkUserExists(vo);
-		} catch (NoUserFoundException e) {
+		} catch (final NoUserFoundException e) {
 			userAlreadyRegistered = false;
 		}
 		
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 		
 		pc = CAHUtil.getInstance().generateHash(pc,CAHUtil.STRETCHED_HASH_ALGO);
 
-		UserProfile prof = (UserProfile) vo.buildDomainObject();
+		final UserProfile prof = (UserProfile) vo.buildDomainObject();
 		
 		prof.setPassword(pc.getHashedPassword());
 		prof.setSaltValue(pc.getSalt());

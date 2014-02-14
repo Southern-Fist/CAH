@@ -16,7 +16,7 @@ public class PasswordContainer {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(final String password) {
 		this.password = password;
 	}
 
@@ -24,7 +24,7 @@ public class PasswordContainer {
 		return hashedPassword;
 	}
 
-	public void setHashedPassword(String hashedPassword) {
+	public void setHashedPassword(final String hashedPassword) {
 		this.hashedPassword = hashedPassword;
 	}
 
@@ -32,7 +32,7 @@ public class PasswordContainer {
 		return salt;
 	}
 
-	public void setSalt(byte[] salt) {
+	public void setSalt(final byte[] salt) {
 		this.salt = salt;
 	}
 	

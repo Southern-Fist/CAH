@@ -29,7 +29,7 @@ public class Game {
 		return gameName;
 	}
 
-	public void setGameName(String gameName) {
+	public void setGameName(final String gameName) {
 		this.gameName = gameName;
 	}
 
@@ -37,7 +37,7 @@ public class Game {
 		return whiteDeck;
 	}
 
-	public void setWhiteDeck(Deck whiteDeck) {
+	public void setWhiteDeck(final Deck whiteDeck) {
 		whiteDeck.shuffleDeck();
 		this.whiteDeck = whiteDeck;
 	}
@@ -46,7 +46,7 @@ public class Game {
 		return blackDeck;
 	}
 
-	public void setBlackDeck(Deck blackDeck) {
+	public void setBlackDeck(final Deck blackDeck) {
 		blackDeck.shuffleDeck();
 		this.blackDeck = blackDeck;
 	}
@@ -55,11 +55,11 @@ public class Game {
 		return maxPlayers;
 	}
 
-	public void setMaxPlayers(Integer maxPlayers) {
+	public void setMaxPlayers(final Integer maxPlayers) {
 		this.maxPlayers = maxPlayers;
 	}
 
-	public Player getPlayer(PlayedHand ph) {
+	public Player getPlayer(final PlayedHand ph) {
 
 		Player retval = players[ph.getPlayerPosition()];
 		if (!ph.getPlayerHandle().equalsIgnoreCase(retval.getHandle())) {
@@ -72,13 +72,13 @@ public class Game {
 		return players;
 	}
 
-	public void setPlayers(Player[] players) {
+	public void setPlayers(final Player[] players) {
 		this.players = players;
 	}
 
 	// Use this method when the positions have changed and the ph object handle
 	// doesn't match the position
-	public Player getPlayer(String handle) {
+	public Player getPlayer(final String handle) {
 
 		Player retval = null;
 		for (int i = 0; i < getCurrentPlayerCount(); i++) {
@@ -89,13 +89,13 @@ public class Game {
 		return retval;
 	}
 	
-	public Player getPlayer(Integer pos){
+	public Player getPlayer(final Integer pos){
 		
-		Player retval = players[pos]; 
+		final Player retval = players[pos]; 
 		return retval;
 	}
 
-	public void addPlayer(Player aPlayer) {
+	public void addPlayer(final Player aPlayer) {
 
 		if (getCurrentPlayerCount() == maxPlayers)
 			return;
@@ -105,7 +105,7 @@ public class Game {
 		players[getCurrentPlayerCount().intValue() - 1] = aPlayer;
 	}
 
-	public void removePlayer(Player aPlayer) {
+	public void removePlayer(final Player aPlayer) {
 
 		decreasePlayerCount();
 		players[aPlayer.getPlayerPosition() - 1] = null;
@@ -131,16 +131,16 @@ public class Game {
 
 		for (int i = 0; i < players.length; i++) {
 
-			Player player = players[i];
+			final Player player = players[i];
 			if (player == null) {
 				shuffleForward(i);
 			}
 		}
 	}
 
-	private void shuffleForward(int pos) {
+	private void shuffleForward(final int pos) {
 
-		int len = getCurrentPlayerCount();
+		final int len = getCurrentPlayerCount();
 
 		for (int i = pos; i < len; i++) {
 
@@ -149,19 +149,19 @@ public class Game {
 		}
 	}
 
-	public void play(Play play) {
+	public void play(final Play play) {
 
 		aRound.playHand(play);
 	}
 
 	public Iterator<Play> showPlays() {
 
-		Iterator<Play> retval = aRound.showPlays();
+		final Iterator<Play> retval = aRound.showPlays();
 		System.out.println("[DEBUG] : " + retval + " " + retval.hasNext());
 		return retval;
 	}
 
-	public void selectJudge(Player player) {
+	public void selectJudge(final Player player) {
 
 		aRound.setCurrentJudge(player);
 	}
@@ -178,7 +178,7 @@ public class Game {
 
 	public ArrayList<Card> dealHand() {
 
-		ArrayList<Card> retval = new ArrayList<Card>();
+		final ArrayList<Card> retval = new ArrayList<Card>();
 		for (int i = 0; i < 13; i++)
 			retval.add(whiteDeck.dealCard());
 
@@ -187,13 +187,13 @@ public class Game {
 
 	public Card dealBlackCard() {
 
-		Card retval = blackDeck.dealCard();
+		final Card retval = blackDeck.dealCard();
 		return retval;
 	}
 
-	public List<Card> listPlayerHand(String playerHandle) {
+	public List<Card> listPlayerHand(final String playerHandle) {
 
-		List<Card> retval = getPlayer(playerHandle).listHand();
+		final List<Card> retval = getPlayer(playerHandle).listHand();
 		return retval;
 	}
 

@@ -59,19 +59,19 @@ public class UserProfile {
 	public Integer getProfileId() {
 		return profileId;
 	}
-	public void setProfileId(Integer profileId) {
+	public void setProfileId(final Integer profileId) {
 		this.profileId = profileId;
 	}
 	public String getUsername() {
 		return username;
 	}
-	public void setUsername(String username) {
+	public void setUsername(final String username) {
 		this.username = username;
 	}
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(final String password) {
 		this.password = password;
 	}
 	/*public Role getRole() {
@@ -84,7 +84,7 @@ public class UserProfile {
 	public byte[] getSaltValue() {
 		return saltValue;
 	}
-	public void setSaltValue(byte[] saltValue) {
+	public void setSaltValue(final byte[] saltValue) {
 		this.saltValue = saltValue;
 	}
 	@Temporal(TemporalType.TIMESTAMP)
@@ -92,26 +92,26 @@ public class UserProfile {
 	public Date getLastLogin() {
 		return lastLogin;
 	}
-	public void setLastLogin(Date lastLogin) {
+	public void setLastLogin(final Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
 	
 	public Integer getFailedLoginCount() {
 		return failedLoginCount;
 	}
-	public void setFailedLoginCount(Integer failedLoginCount) {
+	public void setFailedLoginCount(final Integer failedLoginCount) {
 		this.failedLoginCount = failedLoginCount;
 	}
 	public String getImgPath() {
 		return imgPath;
 	}
-	public void setImgPath(String imgPath) {
+	public void setImgPath(final String imgPath) {
 		this.imgPath = imgPath;
 	}
 	public char getAccountActive() {
 		return accountActive;
 	}
-	public void setAccountActive(char accountActive) {
+	public void setAccountActive(final char accountActive) {
 		this.accountActive = accountActive;
 	}
 	

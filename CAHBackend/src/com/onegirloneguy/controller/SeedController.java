@@ -69,10 +69,10 @@ public class SeedController {
 	@ResponseBody
 	public void seedPlayers(){
 		
-		Player player1 = new Player("One");
-		Player player2 = new Player("Two");
-		Player player3 = new Player("Three");
-		Player player4 = new Player("Four");
+		final Player player1 = new Player("One");
+		final Player player2 = new Player("Two");
+		final Player player3 = new Player("Three");
+		final Player player4 = new Player("Four");
 		
 		dealerService.registerPlayer(player1);
 		dealerService.registerPlayer(player2);
@@ -97,7 +97,7 @@ public class SeedController {
 	
 	@RequestMapping("show/player/hand/id")
 	@ResponseBody
-	public List<Card> showPlayerHands(Integer id){
+	public List<Card> showPlayerHands(final Integer id){
 		
 		return dealerService.getPlayer(id).listHand();
 	}

@@ -49,14 +49,14 @@ public class CardServiceImpl implements CardService {
 					.loadCards("/Users/michaelmorris/Documents/workspace/Test/Cards Against Humanity/wcards.txt");
 			saveCards(cardArray, 2);
 
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	// used to build the cards in the db
-	private void saveCards(String[] cardArray, Integer cardTypeId) {
+	private void saveCards(final String[] cardArray, final Integer cardTypeId) {
 
 		for (int i = 0; i < cardArray.length; i++) {
 
@@ -78,9 +78,9 @@ public class CardServiceImpl implements CardService {
 		// System.out.println("[DEBUG] Number of cards: " + whiteDeck.size());
 	}
 
-	private Deck buildDeck(Integer deckType) {
+	private Deck buildDeck(final Integer deckType) {
 
-		Deck deck = dao.getDeck(deckType);
+		final Deck deck = dao.getDeck(deckType);
 		return deck;
 		/*if (blackDeck == null || whiteDeck == null) {
 			Deck deck = dao.getDeck(deckType);

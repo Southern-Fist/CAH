@@ -21,13 +21,13 @@ public class Role {
 	public Integer getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(Integer roleId) {
+	public void setRoleId(final Integer roleId) {
 		this.roleId = roleId;
 	}
 	public String getRolename() {
 		return rolename;
 	}
-	public void setRolename(String rolename) {
+	public void setRolename(final String rolename) {
 		this.rolename = rolename;
 	}
 }

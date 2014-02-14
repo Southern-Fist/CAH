@@ -16,16 +16,16 @@ public class Hand {
 		return handId;
 	}
 
-	public void setHandId(Integer handId) {
+	public void setHandId(final Integer handId) {
 		this.handId = handId;
 	}
 
-	public void addCard(Card aCard){
+	public void addCard(final Card aCard){
 		
 		cards.add(aCard);
 	}
 	
-	public Card removeCard(Integer position){
+	public Card removeCard(final Integer position){
 		
 		return cards.remove(position.intValue());
 	}
@@ -35,7 +35,7 @@ public class Hand {
 		return cards;
 	}
 	
-	public void setHand(ArrayList<Card> cards){
+	public void setHand(final ArrayList<Card> cards){
 		
 		this.cards = cards;
 	}

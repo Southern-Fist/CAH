@@ -15,7 +15,7 @@ public class SignOnVO extends BaseVO {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setUsername(final String username) {
 		this.username = username;
 	}
 
@@ -23,7 +23,7 @@ public class SignOnVO extends BaseVO {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(final String password) {
 		this.password = password;
 	}
 
@@ -31,7 +31,7 @@ public class SignOnVO extends BaseVO {
 		return lastLogin;
 	}
 
-	public void setLastLogin(String lastLogin) {
+	public void setLastLogin(final String lastLogin) {
 		this.lastLogin = lastLogin;
 	}
 
@@ -39,14 +39,14 @@ public class SignOnVO extends BaseVO {
 		return loginToken;
 	}
 
-	public void setLoginToken(String loginToken) {
+	public void setLoginToken(final String loginToken) {
 		this.loginToken = loginToken;
 	}
 
 	@Override
-	public void populate(Object obj) {
+	public void populate(final Object obj) {
 
-		UserProfile prof = (UserProfile) obj;
+		final UserProfile prof = (UserProfile) obj;
 
 		if (prof != null) {
 
@@ -64,7 +64,7 @@ public class SignOnVO extends BaseVO {
 	@Override
 	public Object buildDomainObject() {
 
-		UserProfile prof = new UserProfile();
+		final UserProfile prof = new UserProfile();
 		prof.setUsername(getUsername());
 		prof.setPassword(getPassword());
 		return prof;

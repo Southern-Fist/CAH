@@ -16,17 +16,17 @@ public class CAHFIleParser {
 		return instance;
 	}
 	
-	public String[] loadFile(String fileName) throws IOException{
+	public String[] loadFile(final String fileName) throws IOException{
 		
 		
 		
-		char[] textBuffer = new char[1024]; 
-		StringBuffer cahBuffer = new StringBuffer();
+		final char[] textBuffer = new char[1024]; 
+		final StringBuffer cahBuffer = new StringBuffer();
 		String[] cardArray = null;
 		
 		
-		File file = new File(fileName);
-		FileReader reader = new FileReader(file);
+		final File file = new File(fileName);
+		final FileReader reader = new FileReader(file);
 		
 		while (reader.ready()){
 			
@@ -40,9 +40,9 @@ public class CAHFIleParser {
 	}
 	
 	
-	public static void main(String[] args){
+	public static void main(final String[] args){
 		
-		CAHFIleParser parser = new CAHFIleParser();
+		final CAHFIleParser parser = new CAHFIleParser();
 		
 		try{
 			parser.loadFile("/Users/michaelmorris/Documents/workspace/Test/Cards Against Humanity/bcards.txt");
@@ -51,7 +51,7 @@ public class CAHFIleParser {
 			
 			parser.loadFile("/Users/michaelmorris/Documents/workspace/Test/Cards Against Humanity/wcards.txt");
 			
-		}catch (Exception e){
+		}catch (final Exception e){
 			
 			e.printStackTrace();
 		}

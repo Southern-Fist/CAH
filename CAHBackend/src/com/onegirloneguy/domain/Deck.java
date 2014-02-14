@@ -15,7 +15,7 @@ public class Deck {
 
 	}
 
-	public Deck(ArrayList<Card> cards, String deckType) {
+	public Deck(final ArrayList<Card> cards, final String deckType) {
 
 		this.cards = cards;
 		this.deckType = deckType;
@@ -25,7 +25,7 @@ public class Deck {
 		return cards;
 	}
 
-	public void setCards(ArrayList<Card> cards) {
+	public void setCards(final ArrayList<Card> cards) {
 		this.cards = cards;
 	}
 
@@ -33,15 +33,15 @@ public class Deck {
 		return deckType;
 	}
 
-	public void setDeckType(String deckType) {
+	public void setDeckType(final String deckType) {
 		this.deckType = deckType;
 	}
 
 	public void shuffleDeck() {
 
-		int totalCards = cards.size();
-		Card[] deck = (Card[]) cards.toArray(new Card[totalCards]);
-		Card[] shuffledDeck = new Card[totalCards];
+		final int totalCards = cards.size();
+		final Card[] deck = (Card[]) cards.toArray(new Card[totalCards]);
+		final Card[] shuffledDeck = new Card[totalCards];
 		
 		System.out.println("[DEBUG] Total Cards: " + totalCards);
 		System.out.println("[DEBUG] Card Colour: " + this.deckType);
@@ -49,7 +49,7 @@ public class Deck {
 		for (int i = 0; i < totalCards; i++){
 			int newPos; 
 			//get a card from the deck
-			Card card = deck[i];
+			final Card card = deck[i];
 			//get a new random position that is guaranteed to never hit that last position.
 			newPos = randomize(0, totalCards-2);
 			
@@ -94,9 +94,9 @@ public class Deck {
 		return sequentialDeck.next();
 	}
 	
-	public ArrayList<Card> dealCards(int numberOfCardsToDeal){
+	public ArrayList<Card> dealCards(final int numberOfCardsToDeal){
 		
-		ArrayList<Card> list = new ArrayList<Card>();
+		final ArrayList<Card> list = new ArrayList<Card>();
 		for (int i = 0; i < numberOfCardsToDeal; i++){
 			
 			
@@ -105,9 +105,9 @@ public class Deck {
 		return list;
 	}
 	
-	private int randomize(int min, int max) {
+	private int randomize(final int min, final int max) {
 
-		int range = Math.abs(max - min) + 1;
+		final int range = Math.abs(max - min) + 1;
 		return (int) (Math.random() * range) + (min <= max ? min : max);
 
 	}

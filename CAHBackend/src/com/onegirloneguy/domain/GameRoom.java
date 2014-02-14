@@ -9,10 +9,10 @@ public class GameRoom {
 	private static final Integer DEFAULT_MAX_IDLE_TIMER = 60; //In seconds
 	
 	private String roomName;
-	private Integer maxNumberOfPlayers;
-	private Integer idleTimer;
-	private Integer maxNumberOfSpectators;
-	private ArrayList<Player> players;
+	private final Integer maxNumberOfPlayers;
+	private final Integer idleTimer;
+	private final Integer maxNumberOfSpectators;
+	private final ArrayList<Player> players;
 	
 	
 	
@@ -24,12 +24,12 @@ public class GameRoom {
 		players = new ArrayList<Player>();
 	}
 	
-	public void addPlayer(Player player){
+	public void addPlayer(final Player player){
 		
 		players.add(player);
 	}
 	
-	public void removePlayer(Player player){
+	public void removePlayer(final Player player){
 		
 		players.remove(player);
 	}

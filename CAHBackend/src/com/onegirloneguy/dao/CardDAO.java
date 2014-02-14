@@ -30,29 +30,29 @@ public class CardDAO {
 	
 	
 	@Transactional
-	public void addCard(String cardValue, Integer cardTypeId) {
+	public void addCard(final String cardValue, final Integer cardTypeId) {
 		
-		CardType type = new CardType();
+		final CardType type = new CardType();
 		type.setCardTypeId(cardTypeId);
-		Card deck = new Card();
+		final Card deck = new Card();
 		deck.setCardString(cardValue);
 		deck.setCardType(type);
 		
 		em.persist(deck);
 	}
 	
-	public Deck getDeck(Integer cardTypeId){
+	public Deck getDeck(final Integer cardTypeId){
 		
-		Query qry = em.createNamedQuery(Card.FIND_BY_TYPE);
-		CardType type = new CardType();
+		final Query qry = em.createNamedQuery(Card.FIND_BY_TYPE);
+		final CardType type = new CardType();
 		type.setCardTypeId(cardTypeId);
 		
 		qry.setParameter("typeId", type);
 		
-		String deckName = cardTypeId == 1 ? "Black Deck" : "White Deck";
+		final String deckName = cardTypeId == 1 ? "Black Deck" : "White Deck";
 		
-		ArrayList<Card> retval = new ArrayList<Card>(qry.getResultList());
-		Deck deck = new Deck(retval, deckName);
+		final ArrayList<Card> retval = new ArrayList<Card>(qry.getResultList());
+		final Deck deck = new Deck(retval, deckName);
 		
 		return deck;
 	}

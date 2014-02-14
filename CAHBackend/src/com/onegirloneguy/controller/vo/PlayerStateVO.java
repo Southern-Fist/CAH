@@ -15,7 +15,7 @@ public class PlayerStateVO {
 		return gameName;
 	}
 
-	public void setGameName(String gameName) {
+	public void setGameName(final String gameName) {
 		this.gameName = gameName;
 	}
 
@@ -23,7 +23,7 @@ public class PlayerStateVO {
 		return playerHandle;
 	}
 
-	public void setPlayerHandle(String playerHandle) {
+	public void setPlayerHandle(final String playerHandle) {
 		this.playerHandle = playerHandle;
 	}
 
@@ -31,7 +31,7 @@ public class PlayerStateVO {
 		return hand;
 	}
 
-	public void setHand(PlayedHand hand) {
+	public void setHand(final PlayedHand hand) {
 		this.hand = hand;
 	}
 
@@ -39,7 +39,7 @@ public class PlayerStateVO {
 		return position;
 	}
 
-	public void setPosition(Integer position) {
+	public void setPosition(final Integer position) {
 		this.position = position;
 	}
 
@@ -47,11 +47,11 @@ public class PlayerStateVO {
 		return score;
 	}
 
-	public void setScore(Integer score) {
+	public void setScore(final Integer score) {
 		this.score = score;
 	}
 
-	public void populateVO(Player p) {
+	public void populateVO(final Player p) {
 
 		if (this.getPlayerHandle() == null)
 			this.setPlayerHandle(p.getHandle());
@@ -61,7 +61,7 @@ public class PlayerStateVO {
 	
 	public String toString(){
 		
-		String retval = getGameName() + " : " + getPlayerHandle() + " : " + getPosition();
+		final String retval = getGameName() + " : " + getPlayerHandle() + " : " + getPosition();
 		return retval;
 	}
 

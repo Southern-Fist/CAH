@@ -8,7 +8,7 @@ public abstract class BaseVO {
 	public abstract Object buildDomainObject();
 	
 	
-	public void setErrorMessage(String msg){
+	public void setErrorMessage(final String msg){
 		
 		errorMsg = msg;
 	}

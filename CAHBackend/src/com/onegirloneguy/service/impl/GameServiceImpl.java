@@ -27,10 +27,10 @@ public class GameServiceImpl implements GameService {
 	@Inject
 	CardService service;
 	
-	private Map<String, Game> gameMap = new HashMap<String, Game>();
+	private final Map<String, Game> gameMap = new HashMap<String, Game>();
 
 	@Override
-	public void createGame(Game aGame) throws GameExistsException {
+	public void createGame(final Game aGame) throws GameExistsException {
 
 		if (!gameMap.containsKey(aGame.getGameName())){
 			
@@ -43,39 +43,39 @@ public class GameServiceImpl implements GameService {
 		}
 	}
 	
-	private Game getGame(String gameName){
+	private Game getGame(final String gameName){
 		
 		return gameMap.get(gameName);
 	}
 
 	@Override
-	public void removeGame(Game aGame) {
+	public void removeGame(final Game aGame) {
 
 		gameMap.remove(aGame.getGameName());
 	}
 
 	@Override
-	public void joinGame(String gameName, Player aPlayer) {
+	public void joinGame(final String gameName, final Player aPlayer) {
 		
-		Game gme = gameMap.get(gameName);
+		final Game gme = gameMap.get(gameName);
 		aPlayer.setHand(gme.dealHand());
 		gme.addPlayer(aPlayer);
 		logToConsole("Player " + aPlayer.getHandle() + " joined game " + gameName + "!");
 	}
 
 	@Override
-	public void leaveGame(Game aGame, Player aPlayer) {
+	public void leaveGame(final Game aGame, final Player aPlayer) {
 
 		gameMap.get(aGame.getGameName()).removePlayer(aPlayer);
 	}
 
 	@Override
-	public void submitPlay(PlayedHand ph) {
+	public void submitPlay(final PlayedHand ph) {
 
-		Game gme = gameMap.get(ph.getGameName());
-		Player plyr = gme.getPlayer(ph);
-		Iterator iter = (Iterator) ph.getCards().iterator();
-		Play play = new Play();
+		final Game gme = gameMap.get(ph.getGameName());
+		final Player plyr = gme.getPlayer(ph);
+		final Iterator iter = (Iterator) ph.getCards().iterator();
+		final Play play = new Play();
 		
 		play.setPlayer(ph.getPlayerHandle());
 		
@@ -93,50 +93,50 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public Iterator showPlays(PlayedHand ph) {
+	public Iterator showPlays(final PlayedHand ph) {
 		
-		Game gme = gameMap.get(ph.getGameName());
+		final Game gme = gameMap.get(ph.getGameName());
 		return gme.showPlays();
 	}
 
-	private void logToConsole(String msg){
+	private void logToConsole(final String msg){
 		
 		System.out.println("[DEBUG] - "+ msg);
 	}
 
 	@Override
-	public Card drawBlackCard(String gameName) {
+	public Card drawBlackCard(final String gameName) {
 		
-		Game gme = gameMap.get(gameName);
-		Card retval = gme.dealBlackCard();
+		final Game gme = gameMap.get(gameName);
+		final Card retval = gme.dealBlackCard();
 		return retval;
 	}
 
 	@Override
-	public List<Card> listPlayerHand(String gameName, String playerHandle) {
+	public List<Card> listPlayerHand(final String gameName, final String playerHandle) {
 		
-		List<Card> retval = gameMap.get(gameName).getPlayer(playerHandle).listHand();
+		final List<Card> retval = gameMap.get(gameName).getPlayer(playerHandle).listHand();
 		return retval;
 	}
 
 	@Override
-	public void selectWinner(String gameName, String playerHandle) {
+	public void selectWinner(final String gameName, final String playerHandle) {
 		
-		Game gme = gameMap.get(gameName);
-		Player player = gme.getPlayer(playerHandle);
+		final Game gme = gameMap.get(gameName);
+		final Player player = gme.getPlayer(playerHandle);
 		player.incrementScore();
 	}
 
 	@Override
-	public List<PlayerStateVO> getScoreList(String gameName) {
+	public List<PlayerStateVO> getScoreList(final String gameName) {
 		
-		Game gme = getGame(gameName);
-		Player[] players = gme.getPlayers();
-		List<PlayerStateVO> retval = new ArrayList<PlayerStateVO>();
+		final Game gme = getGame(gameName);
+		final Player[] players = gme.getPlayers();
+		final List<PlayerStateVO> retval = new ArrayList<PlayerStateVO>();
 		
 		PlayerStateVO vo;
 		for (int i = 0; i < gme.getCurrentPlayerCount(); i++){
-			Player aPlayer = players[i];
+			final Player aPlayer = players[i];
 			vo = new PlayerStateVO();
 			vo.populateVO(aPlayer);
 			vo.setGameName(gameName);
@@ -147,22 +147,22 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public PlayerStateVO getCurrentPlayerState(PlayerStateVO pvo) {
+	public PlayerStateVO getCurrentPlayerState(final PlayerStateVO pvo) {
 
-		Game gme = getGame(pvo.getGameName());
-		Player p = gme.getPlayer(pvo.getPlayerHandle());
+		final Game gme = getGame(pvo.getGameName());
+		final Player p = gme.getPlayer(pvo.getPlayerHandle());
 		
-		PlayerStateVO vo = new PlayerStateVO();
+		final PlayerStateVO vo = new PlayerStateVO();
 		vo.populateVO(p);
 		vo.setGameName(pvo.getGameName());
 		return vo;
 	}
 
 	@Override
-	public void nextRound(String gameName) {
+	public void nextRound(final String gameName) {
 		
-		Game gme = getGame(gameName);
-		Player judge = gme.getCurrentJudge();
+		final Game gme = getGame(gameName);
+		final Player judge = gme.getCurrentJudge();
 		
 		gme.newRound();
 		
@@ -170,7 +170,7 @@ public class GameServiceImpl implements GameService {
 		position = position + 1;
 		position = position % gme.getCurrentPlayerCount();
 		
-		Player ply = gme.getPlayer(position);
+		final Player ply = gme.getPlayer(position);
 		gme.selectJudge(ply);
 		
 	}

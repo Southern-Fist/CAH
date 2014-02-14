@@ -20,7 +20,7 @@ public class TestController {
 	
 	@RequestMapping("login")
 	@ResponseBody
-	public SignOnVO signOn(SignOnVO vo){
+	public SignOnVO signOn(final SignOnVO vo){
 		vo.setUsername("Mikey");
 		vo.setPassword("m@rr!25ss");
 		return service.signOn(vo);

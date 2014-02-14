@@ -18,7 +18,7 @@ public class UserManagementController {
 	
 	@RequestMapping("login")
 	@ResponseBody
-	public SignOnVO signOn(SignOnVO vo){
+	public SignOnVO signOn(final SignOnVO vo){
 		
 		return service.signOn(vo);
 	}

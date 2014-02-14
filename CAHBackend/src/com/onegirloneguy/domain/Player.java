@@ -15,7 +15,7 @@ public class Player {
 		score = 0;
 	}
 	
-	public Player(String handle){
+	public Player(final String handle){
 		
 		this.handle = handle;
 	}
@@ -23,21 +23,21 @@ public class Player {
 	public String getHandle() {
 		return handle;
 	}
-	public void setHandle(String handle) {
+	public void setHandle(final String handle) {
 		this.handle = handle;
 	}
 	
-	public void addCard(Card aCard) {
+	public void addCard(final Card aCard) {
 		playerHand.addCard(aCard);
 	}
-	public Card removeCard(Integer position) {
+	public Card removeCard(final Integer position) {
 		return playerHand.removeCard(position);
 	}
 	public List<Card> listHand() {
 		return playerHand.listHand();
 	}
 	
-	public void setHand(ArrayList<Card> cards){
+	public void setHand(final ArrayList<Card> cards){
 		
 		playerHand.setHand(cards);
 	}
@@ -46,7 +46,7 @@ public class Player {
 		return playerPosition;
 	}
 
-	public void setPlayerPosition(Integer playerPosition) {
+	public void setPlayerPosition(final Integer playerPosition) {
 		this.playerPosition = playerPosition;
 	}
 	
@@ -54,7 +54,7 @@ public class Player {
 		return playerHand;
 	}
 
-	public void setPlayerHand(Hand playerHand) {
+	public void setPlayerHand(final Hand playerHand) {
 		this.playerHand = playerHand;
 	}
 

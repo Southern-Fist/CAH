@@ -22,13 +22,13 @@ public class CardType {
 	public Integer getCardTypeId() {
 		return cardTypeId;
 	}
-	public void setCardTypeId(Integer cardTypeId) {
+	public void setCardTypeId(final Integer cardTypeId) {
 		this.cardTypeId = cardTypeId;
 	}
 	public String getCardTypeDesc() {
 		return cardTypeDesc;
 	}
-	public void setCardTypeDesc(String cardTypeDesc) {
+	public void setCardTypeDesc(final String cardTypeDesc) {
 		this.cardTypeDesc = cardTypeDesc;
 	}
 	

@@ -23,7 +23,7 @@ public class UserDAO {
 	EntityManager em;
 
 	@Transactional
-	public UserProfile registerUser(UserProfile profile) {
+	public UserProfile registerUser(final UserProfile profile) {
 
 		em.persist(profile);
 
@@ -31,7 +31,7 @@ public class UserDAO {
 	}
 	
 	@Transactional
-	public UserProfile update(UserProfile profile) {
+	public UserProfile update(final UserProfile profile) {
 
 		em.merge(profile);
 		//em.persist(profile);
@@ -41,12 +41,12 @@ public class UserDAO {
 
 	public UserProfile signOn(UserProfile profile) throws NoUserFoundException{
 
-		Query qry = em.createNamedQuery(UserProfile.FIND_BY_USERNAME);
+		final Query qry = em.createNamedQuery(UserProfile.FIND_BY_USERNAME);
 		qry.setParameter(UserProfile.USER_NAME, profile.getUsername());
 		
 		try{
 			profile = (UserProfile) qry.getSingleResult();
-		}catch (NoResultException nre){
+		}catch (final NoResultException nre){
 			nre.printStackTrace();
 			throw new NoUserFoundException("The credentials entered were inccorect.  Please try again.");
 		}

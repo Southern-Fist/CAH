@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class Round {
 
-	private Map<String, Play> playedCards = new HashMap<String, Play>();
+	private final Map<String, Play> playedCards = new HashMap<String, Play>();
 	private Player currentJudge;
 	
-	public void playHand(Play play){
+	public void playHand(final Play play){
 		
 		playedCards.put(play.getPlayer(), play);
 	}
@@ -23,7 +23,7 @@ public class Round {
 		return currentJudge;
 	}
 
-	public void setCurrentJudge(Player currentJudge) {
+	public void setCurrentJudge(final Player currentJudge) {
 		this.currentJudge = currentJudge;
 	}
 }

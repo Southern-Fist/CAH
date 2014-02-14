@@ -38,7 +38,7 @@ public class Card {
 		return cardId;
 	}
 
-	public void setCardId(Integer cardId) {
+	public void setCardId(final Integer cardId) {
 		this.cardId = cardId;
 	}
 
@@ -46,7 +46,7 @@ public class Card {
 		return cardString;
 	}
 
-	public void setCardString(String cardString) {
+	public void setCardString(final String cardString) {
 		this.cardString = cardString;
 	}
 
@@ -56,7 +56,7 @@ public class Card {
 		return cardType;
 	}
 
-	public void setCardType(CardType cardType) {
+	public void setCardType(final CardType cardType) {
 		this.cardType = cardType;
 	}
 

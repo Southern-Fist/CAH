@@ -22,7 +22,7 @@ public class DealerServiceImpl implements DealerService {
 	private Deck whiteDeck;
 	private Deck blackDeck;
 
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private final ArrayList<Player> players = new ArrayList<Player>();
 
 	public DealerServiceImpl() {
 
@@ -36,31 +36,31 @@ public class DealerServiceImpl implements DealerService {
 	}
 
 	@Override
-	public void registerPlayer(Player player) {
+	public void registerPlayer(final Player player) {
 
 		players.add(player);
 	}
 
 	@Override
-	public void removePlayer(Player player) {
+	public void removePlayer(final Player player) {
 
 		players.remove(player);
 	}
 
-	public Player getPlayer(Integer position) {
+	public Player getPlayer(final Integer position) {
 
 		return players.get(position.intValue());
 	}
 
 	@Override
-	public void deal(Integer numberOfCards) {
+	public void deal(final Integer numberOfCards) {
 
 		for (int i = 0; i < numberOfCards; i++) {
 
 			for (int j = 0; j < players.size(); j++) {
 
-				Player aPlayer = players.get(j);
-				Card aCard = drawCard(CardServiceImpl.WHITE_CARD);
+				final Player aPlayer = players.get(j);
+				final Card aCard = drawCard(CardServiceImpl.WHITE_CARD);
 				aPlayer.addCard(aCard);
 			}
 		}
@@ -79,16 +79,16 @@ public class DealerServiceImpl implements DealerService {
 	}
 
 	@Override
-	public Card drawCard(Integer cardTypeId) {
+	public Card drawCard(final Integer cardTypeId) {
 
-		Card card = drawCards(cardTypeId, 1).iterator().hasNext() ? drawCards(
+		final Card card = drawCards(cardTypeId, 1).iterator().hasNext() ? drawCards(
 				cardTypeId, 1).iterator().next() : null;
 
 		return card;
 	}
 
 	@Override
-	public Collection<Card> drawCards(Integer cardTypeId, Integer numberOfCards) {
+	public Collection<Card> drawCards(final Integer cardTypeId, final Integer numberOfCards) {
 
 		Collection<Card> cards = null;
 		if (cardTypeId == CardServiceImpl.BLACK_CARD)

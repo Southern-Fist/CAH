@@ -23,19 +23,19 @@ public class ImageType {
 	public Integer getImageTypeId() {
 		return imageTypeId;
 	}
-	public void setImageTypeId(Integer imageTypeId) {
+	public void setImageTypeId(final Integer imageTypeId) {
 		this.imageTypeId = imageTypeId;
 	}
 	public String getImagedesc() {
 		return imagedesc;
 	}
-	public void setImagedesc(String imagedesc) {
+	public void setImagedesc(final String imagedesc) {
 		this.imagedesc = imagedesc;
 	}
 	public Integer getSortOrder() {
 		return sortOrder;
 	}
-	public void setSortOrder(Integer sortOrder) {
+	public void setSortOrder(final Integer sortOrder) {
 		this.sortOrder = sortOrder;
 	}
 	
