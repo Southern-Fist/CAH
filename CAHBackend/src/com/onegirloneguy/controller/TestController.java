@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.onegirloneguy.controller.vo.SignOnVO;
 import com.onegirloneguy.service.UserService;
+import com.oneguyonegirl.security.PasswordHandler;
 import com.oneguyonegirl.util.CAHUtil;
 
 @Controller
@@ -41,7 +42,7 @@ public class TestController {
 	public void randRegisterUser(SignOnVO vo){
 		
 		vo = vo != null ? vo : new SignOnVO();
-		vo.setUsername("Mikey" + CAHUtil.getInstance().generateHashSalt(2));
+		vo.setUsername("Mikey" + PasswordHandler.getInstance().generateHashSalt(2));
 		vo.setPassword("m@rr!25s");
 		service.registerUser(vo);
 	}
